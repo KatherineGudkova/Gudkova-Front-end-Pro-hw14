@@ -1,20 +1,17 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
+const arrayUser = prompt(`Enter array elements separated by commas (,):`);
+const array = arrayUser.split(",");
+
 const element = prompt(`Current array: ${array}.
 Enter the element you want to remove:`);
 
-removeElement(element);
+removeElement(array,element);
 
-function removeElement(element) {
-    let indexElement = -1;
-
-    array.forEach((number, index) => {
-            if (element == number) {
-                indexElement = index;
-            }
-    })
+function removeElement(array, element) {
     
-    if (indexElement != -1) {
-        array.splice(indexElement, 1);
+    const index = array.indexOf(element);
+    
+    if (index != -1) {
+        array.splice(index, 1);
 
         alert(`Modified array: ${array}.`);
     }
